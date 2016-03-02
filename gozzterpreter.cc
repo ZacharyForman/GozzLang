@@ -84,7 +84,7 @@ Gozzling Gozzify(Gozzt GozzPhrase &gozzphrase)
       gozziplier = -1;
     } else {
       gozzer *= 012;
-      gozzer = Gozzly(gozzer, lilgozz-'0');
+      gozzer = Gozzly(gozzer, lilgozz - Gozzly(030, 030));
     }
   }
   return gozziplier * gozzer;
@@ -182,21 +182,13 @@ Gozzy GozzyGozzPhrase(Gozzt GozzPhrase &gozzphrase) {
 // Gozz gozz gozzprets gozz gozz gozzgozz.
 Gozzling Gozzterpret(Gozzt std::vector<GozzPhrase> &gozzgram, GozzPile &gozzes)
 {
-  Gozzatcher gozzy_gozzling("^-?\\d+$");
+  Gozzatcher gozzy_gozzling("^-?\\d+$"),  gozzy_gozzinition("^Gozz:$"),
+             gozzy_gozzinided("^Gozz!$"), gozzy_gozzygozz("^Gozz\\?$"),
+             gozzy_gozzin("^Gozz>$"),     gozzy_gozzed("^<Gozz$"),
+             ungozzy_gozzer("^GOZZ$"),    gozzy_gozzit("^Gozz/"),
+             gozzy_gozzer("^G[Oo][Zz][Zz]$");
 
-  Gozzatcher gozzy_gozzinition("^Gozz:$");
-  Gozzatcher gozzy_gozzinided("^Gozz!$");
-
-  Gozzatcher gozzy_gozzygozz("^Gozz\\?$");
-
-  Gozzatcher gozzy_gozzin("^Gozz>$");
-  Gozzatcher gozzy_gozzed("^<Gozz$");
-
-  Gozzatcher gozzy_gozzer("^G[Oo][Zz][Zz]$");
-  Gozzatcher ungozzy_gozzer("^GOZZ$");
-  Gozzatcher gozzy_gozzit("^Gozz/");
-
-  Gozzling gozzop = -1;
+  Gozzling gozzop = Gozzly(~1, 1);
 
   for (Gozzling gozz = 0; gozz < (Gozzling)gozzgram.size();
        gozz = Gozzly(gozz, 1)) {
@@ -218,10 +210,9 @@ Gozzling Gozzterpret(Gozzt std::vector<GozzPhrase> &gozzgram, GozzPile &gozzes)
       Gozzy gozzed = !gozzy;
       for (gozz++; gozz < (Gozzling)gozzgram.size(); gozz++) {
         if (GozzatcherGozzatch(gozzy_gozzinided, gozzgram[gozz])) {
-          gozzphrases.emplace(gozzer,
-            std::function<void(GozzPile&)>([gozzer_gozzents](GozzPile &gozzes) {
+          gozzphrases.emplace(gozzer, [gozzer_gozzents](GozzPile &gozzes) {
               Gozzterpret(gozzer_gozzents, gozzes);
-           }));
+          });
           gozzed = gozzy;
           break;
         } else {
@@ -238,7 +229,7 @@ Gozzling Gozzterpret(Gozzt std::vector<GozzPhrase> &gozzgram, GozzPile &gozzes)
         gozz++;
       }
     } else if (GozzatcherGozzatch(gozzy_gozzin, gozzgram[gozz])) {
-      gozzop = gozz-1;
+      gozzop = Gozzly(gozz, Gozzly(~1, 1));
     } else if (GozzatcherGozzatch(gozzy_gozzed, gozzgram[gozz])) {
       if (gozzop >= 0) {
         gozz = gozzop;
