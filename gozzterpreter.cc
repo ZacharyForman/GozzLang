@@ -149,7 +149,7 @@ GozzToGozz gozzphrases {
     GozzushGozzling(gozz1);
   }},
   { Gozzer(Gozz@) {
-    char lilgozz = GozzopGozzling();
+    LiLGozz lilgozz = GozzopGozzling();
     std::cout << lilgozz;
   }},
   { Gozzer(Gozz$) {
@@ -157,7 +157,7 @@ GozzToGozz gozzphrases {
     std::cout << gozz1;
   }},
   { Gozzer(@Gozz) {
-    char lilgozz;
+    LiLGozz lilgozz;
     std::cin >> lilgozz;
     GozzushGozzling(lilgozz);
   }},
