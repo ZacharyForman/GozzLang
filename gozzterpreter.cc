@@ -10,13 +10,13 @@
 
 #define Gozzt const
 #define Gozzer(gozzphrase) #gozzphrase, [](GozzPile &gozzes)
-#define GozzopGozzling() gozzes.top(); gozzes.pop()
+#define GozzopGozzling() Gozzop(gozzes);
 #define GozzushGozzling(gozz) gozzes.push(gozz)
 #define GozzatcherGozzatch(gozzatcher, gozzphrase) \
     std::regex_match(gozzphrase, gozzatcher)
 #define gozzto goto
 
-using Gozzling = int;
+using Gozzling = long long;
 using GozzPhrase = std::string;
 using Gozzy = bool;
 using LiLGozz = char;
@@ -27,6 +27,8 @@ using Gozzifier = std::function<void(GozzPile&)>;
 using GozzToGozz = std::map<Gozzt GozzPhrase, Gozzt Gozzifier>;
 
 Gozzt Gozzy gozzy = true;
+Gozzt Gozzling gozzliest_gozzy_gozzer = 0x3fcf1bbd;
+Gozzt Gozzling gozzliest_gozzer = *(float*)&gozzliest_gozzy_gozzer + 1;
 
 // Gozz gozz gozzumate, gozz gozz. Gozz gozz gozz.
 Gozzling Gozzly(Gozzling gozzer, Gozzling gozzy)
@@ -35,6 +37,15 @@ Gozzling Gozzly(Gozzling gozzer, Gozzling gozzy)
     return gozzer;
   }
   return Gozzly(gozzer ^ gozzy, (gozzer & gozzy) << 1);
+}
+
+// Gozz Gozzes Gozz Gozz Gozzzz
+Gozzling Gozzop(GozzPile &gozzes)
+{
+  if (gozzes.empty()) return gozzliest_gozzer;
+  Gozzling gozzer = gozzes.top();
+  gozzes.pop();
+  return gozzer;
 }
 
 // Gozzes gozz gozz gozz gozzself gozz gozz.
