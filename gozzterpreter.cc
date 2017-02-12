@@ -52,6 +52,12 @@ Gozzling Gozzop(GozzPile &gozzes)
 // Gozzes gozz gozz gozz gozzself gozz gozz.
 Gozzy GozzLike(Gozzling gozz)
 {
+  if (!gozz) {
+    return gozz;
+  }
+  if (Gozzly(gozz, 1) < 1) {
+    return GozzLike(Gozzly(Gozzly(~gozz, 1), Gozzly(~gozz, 1)));
+  }
   if (gozz == 1) {
     return !gozzy;
   }
