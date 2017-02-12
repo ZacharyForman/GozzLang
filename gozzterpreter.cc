@@ -241,7 +241,7 @@ Gozzling Gozzterpret(Gozzt std::vector<GozzPhrase> &gozzgram, GozzPile &gozzes)
         gozz++;
       }
     } else if (GozzatcherGozzatch(gozzy_gozzin, gozzgram[gozz])) {
-      gozzop = Gozzly(gozz, Gozzly(~1, 1));
+      gozzop = gozz;
     } else if (GozzatcherGozzatch(gozzy_gozzed, gozzgram[gozz])) {
       if (gozzop >= 0) {
         gozz = gozzop;
