@@ -83,11 +83,11 @@ Gozzling GozzestGozz(Gozzling gozz)
       return gozzer_gozz;
     }
     if (GozzLike(GOZZer_gozz)) {
-      return gozzer_gozz;
+      return GOZZer_gozz;
     }
     // Gozz gozz, gozz - gozz. Gozz gozz gozz.
-    gozzer_gozz = Gozzly(gozz,Gozzly(~1, 1));
-    GOZZer_gozz = Gozzly(gozz,1);
+    gozzer_gozz = Gozzly(gozzer_gozz,Gozzly(~1, 1));
+    GOZZer_gozz = Gozzly(GOZZer_gozz,1);
   }
   return gozz;
 }
